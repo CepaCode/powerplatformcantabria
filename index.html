@@ -36,7 +36,7 @@
 
 <div class="container mt-5">
   <div class="text-center mb-4">
-    <h1 style="font-size:32px;font-weight:bold;">¡Nueva edición doble de Power Platform Cantabria! ¡Sesiones el día 18 de septiembre y el 25 un workshop!</h1>
+    <h1 style="font-size:32px;font-weight:bold;">¡Nueva edición doble de Power Platform Cantabria! Sesiones el día 18 de septiembre y el día 25 un workshop, mira toda la info más abajo.</h1>
   </div>
 </div>
 
@@ -65,7 +65,115 @@
     </div>
   </div>
 
-<!-- CSS -->
+ <!-- Featured Speakers -->
+<section class="speakers-section py-5">
+    <div class="container text-center mb-5">
+      <h2 class="font-weight-bold text-white">Featured Speakers</h2>
+    </div>
+  
+    <div class="container">
+      <div class="row justify-content-center align-items-stretch">
+  
+        <!-- Speaker 1 -->
+        <div class="col-md-4 mb-4 d-flex">
+          <div class="card speaker-card flex-fill position-relative">
+            <!-- Icono -->
+            <img src="img/PowerBI.svg" alt="Power BI" class="tech-icon" aria-hidden="true">
+            <!-- Imagen -->
+            <img src="img/SpeakerAlex.jpeg" class="card-img-top speaker-img" alt="Alejandro Villanueva">
+            <div class="card-body d-flex flex-column">
+              <small class="text-muted">Sesión 50 min. 18/09/2025 18:00</small>
+              <h5 class="mt-2 font-weight-bold">Alejandro Villanueva</h5>
+              <p class="mb-1">Data Scientist @ XPO</p>
+              <h6 class="font-weight-bold">Python en Power BI</h6>
+              <p class="text-muted">Las mejores formas de integrar Python en tus modelos semánticos.</p>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Speaker 2 -->
+        <div class="col-md-4 mb-4 d-flex">
+          <div class="card speaker-card flex-fill position-relative">
+            <!-- Icono -->
+            <img src="img/PowerBI.svg" alt="Power BI" class="tech-icon" aria-hidden="true">
+            <!-- Imagen -->
+            <img src="img/SpeakerAdrianViamonte.jpeg" class="card-img-top speaker-img" alt="Adrián Viamonte">
+            <div class="card-body d-flex flex-column">
+              <small class="text-muted">Sesión 50 min. 18/09/2025 19:00</small>
+              <h5 class="mt-2 font-weight-bold">Adrián Viamonte</h5>
+              <p class="mb-1">Data Engineering @ Worley</p>
+              <h6 class="font-weight-bold">Prepara tu huerta 4.0 con Microsoft Fabric</h6>
+              <p class="text-muted">Proceso end to end de digitalización en una huerta desde la recogida de datos con sensores, ingesta, procesamiento y visualización en Power BI.</p>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Speaker 3 -->
+        <div class="col-md-4 mb-4 d-flex">
+          <div class="card speaker-card flex-fill position-relative">
+            <!-- Icono -->
+            <img src="img/PowerBI.svg" alt="Power BI" class="tech-icon" aria-hidden="true">
+            <!-- Imagen -->
+            <img src="img/SpeakerDiegoCabezudo.jpeg" class="card-img-top speaker-img" alt="Diego Cabezudo">
+            <div class="card-body d-flex flex-column">
+              <small class="text-muted">Workshop 2,5 horas 25/09/2025 17:00</small>
+              <h5 class="mt-2 font-weight-bold">Diego Cabezudo</h5>
+              <p class="mb-1">Senior Area Leader @ NTT Data</p>
+              <h6 class="font-weight-bold">Workshop práctico sobre visualización de datos</h6>
+              <p class="text-muted">Diseña visualizaciones claras y efectivas en Power BI, combinando UX, diseño visual y psicología de la percepción.</p>
+            </div>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </section>
+  
+  <!-- Custom CSS -->
+  <style>
+    .speakers-section {
+      background: linear-gradient(135deg, #9D0049, #b83270, #9D0049);
+      margin-top: 100px;
+    }
+  
+    .speaker-card {
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+      display: flex;
+      flex-direction: column;
+    }
+  
+    .speaker-img {
+      height: 350px;
+      object-fit: cover;
+      object-position: top;
+    }
+  
+    .speakers-section h2 {
+      text-shadow: 1px 1px 6px rgba(0,0,0,0.5);
+    }
+  </style>
+  <style>
+    /* Badge del icono (esquina inferior derecha) */
+    .tech-icon {
+      position: absolute;
+      bottom: 12px; 
+      right: 12px;
+      width: 46px;
+      height: 46px;
+      background: radial-gradient(circle at center, rgba(0,0,0,0.85) 60%, rgba(0,0,0,0.6) 100%);
+      border-radius: 50%;
+      padding: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,.25);
+      backdrop-filter: blur(2px);
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .tech-icon:hover {
+      transform: scale(1.12);
+      box-shadow: 0 6px 16px rgba(0,0,0,.35);
+    }
+  </style>
 <style>
   .carousel-item{position:relative;width:100%;padding-top:56.25%;overflow:hidden;}
   .carousel-item img{position:absolute;top:50%;left:50%;width:100%;height:auto;transform:translate(-50%,-50%);object-fit:cover;}
@@ -75,12 +183,13 @@
   .card{flex-grow:1;}
 </style>
 
+
 <!-- Mapa -->
 <div class="container mt-5 text-center map-container">
   <h3>Nuestra sede: CIE Santander, al salir de la S-20</h3>
   <iframe
   class="responsiveIframe"
-  src="https://www.google.com/maps?q=43.4653914,-3.8376134&z=15&output=embed"
+  src="https://www.google.com/maps?q=43.4649039,-3.8368713&z=15&output=embed"
   style="border:0;"
   allowfullscreen=""
   loading="lazy"
