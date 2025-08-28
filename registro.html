@@ -12,11 +12,12 @@
     .brand { font-weight: 700; }
     .required::after { content:" *"; color:#d00; }
     .pill { background:#9D0049; color:#fff; padding:.35rem .75rem; border-radius:999px; font-size:.85rem; }
+    .navbar { background: transparent !important; }
   </style>
 </head>
 <body>
   <!-- Nav mínima con enlace de vuelta -->
-  <nav class="navbar navbar-light bg-light fixed-top">
+  <nav class="navbar fixed-top">
     <div class="container">
       <a class="navbar-brand brand" href="index.html">💢 Power Platform Cantabria</a>
       <a class="pill" href="index.html">Volver</a>
@@ -61,7 +62,7 @@
 
       <!-- Alertas -->
       <div id="okAlert" class="alert alert-success mt-4 d-none" role="alert">
-        🎉 ¡Registro enviado! Te hemos apuntado correctamente.
+        🎉 ¡Registro enviado con éxito! Redirigiendo a la página principal...
       </div>
       <div id="errAlert" class="alert alert-danger mt-4 d-none" role="alert">
         😕 No hemos podido enviar tu registro. Inténtalo de nuevo en unos minutos.
@@ -81,7 +82,6 @@
     const okAlert = document.getElementById('okAlert');
     const errAlert = document.getElementById('errAlert');
 
-    // Validación Bootstrap simple
     function validate() {
       let valid = true;
       ['nombre','email'].forEach(id => {
@@ -118,8 +118,14 @@
         });
 
         if (res.ok) {
-          // 🎯 Redirige a la Home tras enviar OK
-          window.location.href = "https://www.powerplatformcantabria.com";
+          form.reset();
+          okAlert.classList.remove('d-none');
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+
+          // ⏳ Redirige tras 2 segundos
+          setTimeout(() => {
+            window.location.href = "https://www.powerplatformcantabria.com";
+          }, 2000);
         } else {
           errAlert.classList.remove('d-none');
         }
