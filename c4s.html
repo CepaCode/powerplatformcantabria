@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" http-equiv="Content-Language" content="es">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Call4Speakers · Power Platform Cantabria</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body { background: #fafafa; }
+    .nav-spacer { height: 56px; }
+    .card { border-radius: 14px; box-shadow: 0 8px 22px rgba(0,0,0,.08); }
+    .brand { font-weight: 700; }
+    .required::after { content:" *"; color:#d00; }
+    .pill { background:#9D0049; color:#fff; padding:.35rem .75rem; border-radius:999px; font-size:.85rem; }
+    .navbar { background: transparent !important; }
+  </style>
+</head>
+<body>
+  <!-- Nav mínima -->
+  <nav class="navbar fixed-top">
+    <div class="container">
+      <a class="navbar-brand brand" href="index.html">💢 Power Platform Cantabria</a>
+      <a class="pill" href="index.html">Volver</a>
+    </div>
+  </nav>
+  <div class="nav-spacer"></div>
+
+  <div class="container my-5" style="max-width: 720px;">
+    <h1 class="mb-3 text-center" style="font-size:32px;font-weight:bold;">
+      ¡Anímate a participar! Envíanos tu sesión para nuestra próxima edición de Power Platform Cantabria.
+    </h1>
+    <p class="text-muted text-center mb-4">
+      Estarás entre gente conocida que te apoyará en todo lo que necesites para que tu charla sea un éxito.
+    </p>
+
+    <div class="card p-4">
+      <form id="c4sForm" novalidate>
+        <div class="form-group">
+          <label for="title" class="required">Título de la sesión</label>
+          <input type="text" class="form-control" id="title" name="title" placeholder="Título de tu charla" required>
+          <div class="invalid-feedback">Introduce un título.</div>
+        </div>
+
+        <div class="form-group">
+          <label for="fullname" class="required">Nombre y apellidos</label>
+          <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Tu nombre completo" required>
+          <div class="invalid-feedback">Introduce tu nombre.</div>
+        </div>
+
+        <div class="form-group">
+          <label for="email" class="required">Email</label>
+          <input type="email" class="form-control" id="email" name="email" placeholder="tucorreo@ejemplo.com" required>
+          <div class="invalid-feedback">Introduce un email válido.</div>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Teléfono</label>
+          <input type="tel" class="form-control" id="phone" name="phone" placeholder="+34 600 000 000">
+        </div>
+
+        <div class="form-group">
+          <label for="message" class="required">Descripción de la sesión</label>
+          <textarea class="form-control" id="message" name="message" rows="4" placeholder="Explica brevemente de qué trata tu charla" required></textarea>
+          <div class="invalid-feedback">Introduce una descripción.</div>
+        </div>
+
+        <div class="form-group">
+          <label for="formato" class="required">Formato</label>
+          <select class="form-control" id="formato" name="formato" required>
+            <option value="">-- Selecciona formato --</option>
+            <option value="Sesión">Sesión</option>
+            <option value="Workshop">Workshop</option>
+          </select>
+          <div class="invalid-feedback">Selecciona un formato.</div>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">Enviar propuesta</button>
+      </form>
+
+      <!-- Alertas -->
+      <div id="okAlert" class="alert alert-success mt-4 d-none" role="alert">
+        🎉 ¡Propuesta enviada con éxito! Redirigiendo a la página principal...
+      </div>
+      <div id="errAlert" class="alert alert-danger mt-4 d-none" role="alert">
+        😕 No hemos podido enviar tu propuesta. Inténtalo de nuevo en unos minutos.
+      </div>
+    </div>
+
+    <p class="text-muted small mt-3">
+      Al enviar este formulario aceptas que tus datos sean utilizados para la gestión del evento.
+    </p>
+  </div>
+
+  <script>
+    const FLOW_URL = "https://prod-250.westeurope.logic.azure.com:443/workflows/8a81b08fbbd542ffb4c8a9dfdd9017d4/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=yResE6JVBcAnunnBXgReUyhrzPATYp8-lEHpUcV5ZP8";
+
+    const form = document.getElementById('c4sForm');
+    const okAlert = document.getElementById('okAlert');
+    const errAlert = document.getElementById('errAlert');
+
+    function validate() {
+      let valid = true;
+      ['title','fullname','email','message','formato'].forEach(id => {
+        const el = document.getElementById(id);
+        if (!el.checkValidity()) {
+          el.classList.add('is-invalid');
+          valid = false;
+        } else {
+          el.classList.remove('is-invalid');
+        }
+      });
+      return valid;
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      okAlert.classList.add('d-none');
+      errAlert.classList.add('d-none');
+
+      if (!validate()) return;
+
+      const payload = {
+        Title: document.getElementById('title').value.trim(),
+        Full_x0020_Name: document.getElementById('fullname').value.trim(),
+        Email: document.getElementById('email').value.trim(),
+        Phone: document.getElementById('phone').value.trim(),
+        Message: document.getElementById('message').value.trim(),
+        Formato: document.getElementById('formato').value
+      };
+
+      try {
+        const res = await fetch(FLOW_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        if (res.ok) {
+          form.reset();
+          okAlert.classList.remove('d-none');
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+
+          setTimeout(() => {
+            window.location.href = "https://www.powerplatformcantabria.com";
+          }, 2000);
+        } else {
+          errAlert.classList.remove('d-none');
+        }
+      } catch (err) {
+        errAlert.classList.remove('d-none');
+      }
+    });
+  </script>
+</body>
+</html>
