@@ -104,7 +104,6 @@
       if (!validate()) return;
 
       const payload = {
-        // SharePoint: Title = nombre
         Title: document.getElementById('nombre').value.trim(),
         Email: document.getElementById('email').value.trim(),
         Sesiones: document.getElementById('chkSesiones').checked,
@@ -119,9 +118,8 @@
         });
 
         if (res.ok) {
-          form.reset();
-          okAlert.classList.remove('d-none');
-          window.scrollTo({ top: 0, behavior: 'smooth' });
+          // 🎯 Redirige a la Home tras enviar OK
+          window.location.href = "https://www.powerplatformcantabria.com";
         } else {
           errAlert.classList.remove('d-none');
         }
