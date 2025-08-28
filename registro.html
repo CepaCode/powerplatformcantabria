@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" http-equiv="Content-Language" content="es">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro · Power Platform Cantabria</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body { background: #fafafa; }
+    .nav-spacer { height: 56px; }
+    .card { border-radius: 14px; box-shadow: 0 8px 22px rgba(0,0,0,.08); }
+    .brand { font-weight: 700; }
+    .required::after { content:" *"; color:#d00; }
+    .pill { background:#9D0049; color:#fff; padding:.35rem .75rem; border-radius:999px; font-size:.85rem; }
+  </style>
+</head>
+<body>
+  <!-- Nav mínima con enlace de vuelta -->
+  <nav class="navbar navbar-light bg-light fixed-top">
+    <div class="container">
+      <a class="navbar-brand brand" href="index.html">💢 Power Platform Cantabria</a>
+      <a class="pill" href="index.html">Volver</a>
+    </div>
+  </nav>
+  <div class="nav-spacer"></div>
+
+  <div class="container my-5" style="max-width: 720px;">
+    <h1 class="mb-3 text-center">Registro de asistentes</h1>
+    <p class="text-muted text-center mb-4">
+      Rellena tus datos para confirmar asistencia. Los campos marcados con * son obligatorios.
+    </p>
+
+    <div class="card p-4">
+      <form id="regForm" novalidate>
+        <div class="form-group">
+          <label for="nombre" class="required">Nombre y apellidos</label>
+          <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Tu nombre" required>
+          <div class="invalid-feedback">Introduce tu nombre.</div>
+        </div>
+
+        <div class="form-group">
+          <label for="email" class="required">Email</label>
+          <input type="email" class="form-control" id="email" name="email" placeholder="tucorreo@ejemplo.com" required>
+          <div class="invalid-feedback">Introduce un email válido.</div>
+        </div>
+
+        <div class="form-group">
+          <label class="d-block">¿A qué asistirás?</label>
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="chkSesiones">
+            <label class="custom-control-label" for="chkSesiones">Sesiones (18/09)</label>
+          </div>
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="chkWorkshop">
+            <label class="custom-control-label" for="chkWorkshop">Workshop (25/09)</label>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">Enviar registro</button>
+      </form>
+
+      <!-- Alertas -->
+      <div id="okAlert" class="alert alert-success mt-4 d-none" role="alert">
+        🎉 ¡Registro enviado! Te hemos apuntado correctamente.
+      </div>
+      <div id="errAlert" class="alert alert-danger mt-4 d-none" role="alert">
+        😕 No hemos podido enviar tu registro. Inténtalo de nuevo en unos minutos.
+      </div>
+    </div>
+
+    <p class="text-muted small mt-3">
+      Al enviar este formulario aceptas que tus datos sean utilizados para la gestión del evento.
+    </p>
+  </div>
+
+  <script>
+    // 🔁 Sustituye por la URL de tu Flow / Logic App (HTTP trigger)
+    const FLOW_URL = "https://prod-231.westeurope.logic.azure.com:443/workflows/4385b1a5d61944fc953bc6daff910f31/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=28ORjb-3ydjOeg3aoru4UA3QbIeeFbczb5lG1LPfP1I";
+
+    const form = document.getElementById('regForm');
+    const okAlert = document.getElementById('okAlert');
+    const errAlert = document.getElementById('errAlert');
+
+    // Validación Bootstrap simple
+    function validate() {
+      let valid = true;
+      ['nombre','email'].forEach(id => {
+        const el = document.getElementById(id);
+        if (!el.checkValidity()) {
+          el.classList.add('is-invalid');
+          valid = false;
+        } else {
+          el.classList.remove('is-invalid');
+        }
+      });
+      return valid;
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      okAlert.classList.add('d-none');
+      errAlert.classList.add('d-none');
+
+      if (!validate()) return;
+
+      const payload = {
+        // SharePoint: Title = nombre
+        Title: document.getElementById('nombre').value.trim(),
+        Email: document.getElementById('email').value.trim(),
+        Sesiones: document.getElementById('chkSesiones').checked,
+        Workshop: document.getElementById('chkWorkshop').checked
+      };
+
+      try {
+        const res = await fetch(FLOW_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        if (res.ok) {
+          form.reset();
+          okAlert.classList.remove('d-none');
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+          errAlert.classList.remove('d-none');
+        }
+      } catch (err) {
+        errAlert.classList.remove('d-none');
+      }
+    });
+  </script>
+</body>
+</html>
