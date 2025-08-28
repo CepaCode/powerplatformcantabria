@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" http-equiv="Content-Language" content="es">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Call4Speakers · Power Platform Cantabria</title>
+  <title>Call 4 Speakers · Power Platform Cantabria</title>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <style>
     body { background: #fafafa; }
@@ -13,6 +13,7 @@
     .required::after { content:" *"; color:#d00; }
     .pill { background:#9D0049; color:#fff; padding:.35rem .75rem; border-radius:999px; font-size:.85rem; }
     .navbar { background: transparent !important; }
+    .muted { color:#6c757d; }
   </style>
 </head>
 <body>
@@ -25,53 +26,123 @@
   </nav>
   <div class="nav-spacer"></div>
 
-  <div class="container my-5" style="max-width: 720px;">
-    <h1 class="mb-3 text-center" style="font-size:32px;font-weight:bold;">
-      ¡Anímate a participar! Envíanos tu sesión para nuestra próxima edición de Power Platform Cantabria.
-    </h1>
-    <p class="text-muted text-center mb-4">
+  <div class="container my-5" style="max-width: 820px;">
+    <h1 class="mb-3 text-center">¡Participa!</h1>
+    <p class="text-muted text-center mb-4" style="font-size:18px;">
+      ¡Anímate a participar! Envíanos tu sesión para nuestra próxima edición de Power Platform Cantabria. 
       Estarás entre gente conocida que te apoyará en todo lo que necesites para que tu charla sea un éxito.
     </p>
 
     <div class="card p-4">
       <form id="c4sForm" novalidate>
+        <!-- Título (Title) -->
         <div class="form-group">
-          <label for="title" class="required">Título de la sesión</label>
-          <input type="text" class="form-control" id="title" name="title" placeholder="Título de tu charla" required>
-          <div class="invalid-feedback">Introduce un título.</div>
+          <label for="titulo" class="required">Título de la sesión</label>
+          <input type="text" class="form-control" id="titulo" placeholder="Ej. Analítica en tiempo real con Fabric" required>
+          <div class="invalid-feedback">Introduce el título.</div>
         </div>
 
+        <!-- Nombre (Full_x0020_Name) -->
         <div class="form-group">
-          <label for="fullname" class="required">Nombre y apellidos</label>
-          <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Tu nombre completo" required>
+          <label for="fullName" class="required">Tu nombre y apellidos</label>
+          <input type="text" class="form-control" id="fullName" placeholder="Nombre y apellidos" required>
           <div class="invalid-feedback">Introduce tu nombre.</div>
         </div>
 
+        <!-- Email -->
         <div class="form-group">
           <label for="email" class="required">Email</label>
-          <input type="email" class="form-control" id="email" name="email" placeholder="tucorreo@ejemplo.com" required>
+          <input type="email" class="form-control" id="email" placeholder="tucorreo@ejemplo.com" required>
           <div class="invalid-feedback">Introduce un email válido.</div>
         </div>
 
+        <!-- Teléfono (obligatorio) -->
         <div class="form-group">
-          <label for="phone">Teléfono</label>
-          <input type="tel" class="form-control" id="phone" name="phone" placeholder="+34 600 000 000">
+          <label for="phone" class="required">Teléfono</label>
+          <input type="tel" class="form-control" id="phone" placeholder="+34 600 000 000" required>
+          <div class="invalid-feedback">Introduce un teléfono.</div>
+          <small class="muted">Solo lo usaremos para coordinar la logística del evento.</small>
         </div>
 
-        <div class="form-group">
-          <label for="message" class="required">Descripción de la sesión</label>
-          <textarea class="form-control" id="message" name="message" rows="4" placeholder="Explica brevemente de qué trata tu charla" required></textarea>
-          <div class="invalid-feedback">Introduce una descripción.</div>
-        </div>
-
+        <!-- Formato (Choice simple) -->
         <div class="form-group">
           <label for="formato" class="required">Formato</label>
-          <select class="form-control" id="formato" name="formato" required>
-            <option value="">-- Selecciona formato --</option>
+          <select id="formato" class="form-control" required>
+            <option value="">Selecciona formato…</option>
             <option value="Sesión">Sesión</option>
             <option value="Workshop">Workshop</option>
           </select>
           <div class="invalid-feedback">Selecciona un formato.</div>
+        </div>
+
+        <!-- Track (Choice múltiple, máx 3) -->
+        <div class="form-group">
+          <label class="d-block">Temas</label>
+          <div class="row">
+            <!-- usa EXACTAMENTE estos values (coinciden con SharePoint) -->
+            <div class="col-sm-6 col-md-4">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input track" id="t1" value="Power Apps" name="track">
+                <label class="custom-control-label" for="t1">Power Apps</label>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-4">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input track" id="t2" value="Power Automate" name="track">
+                <label class="custom-control-label" for="t2">Power Automate</label>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-4">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input track" id="t3" value="Power BI" name="track">
+                <label class="custom-control-label" for="t3">Power BI</label>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-4">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input track" id="t4" value="Fabric" name="track">
+                <label class="custom-control-label" for="t4">Fabric</label>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-4">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input track" id="t5" value="Copilot Studio" name="track">
+                <label class="custom-control-label" for="t5">Copilot Studio</label>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-4">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input track" id="t6" value="Power Pages" name="track">
+                <label class="custom-control-label" for="t6">Power Pages</label>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-4">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input track" id="t7" value="Dataverse" name="track">
+                <label class="custom-control-label" for="t7">Dataverse</label>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-4">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input track" id="t8" value="SharePoint" name="track">
+                <label class="custom-control-label" for="t8">SharePoint</label>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-4">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input track" id="t9" value="Otros" name="track">
+                <label class="custom-control-label" for="t9">Otros</label>
+              </div>
+            </div>
+          </div>
+          <small id="trackHint" class="muted d-block mt-2">Puedes seleccionar hasta 3.</small>
+        </div>
+
+        <!-- Descripción (Message) -->
+        <div class="form-group">
+          <label for="desc" class="required">Descripción</label>
+          <textarea id="desc" class="form-control" rows="6" placeholder="Cuéntanos de qué va tu sesión…" required></textarea>
+          <div class="invalid-feedback">Incluye una breve descripción.</div>
         </div>
 
         <button type="submit" class="btn btn-primary btn-block">Enviar propuesta</button>
@@ -79,7 +150,7 @@
 
       <!-- Alertas -->
       <div id="okAlert" class="alert alert-success mt-4 d-none" role="alert">
-        🎉 ¡Propuesta enviada con éxito! Redirigiendo a la página principal...
+        🎉 ¡Propuesta enviada con éxito! Redirigiendo a la página principal…
       </div>
       <div id="errAlert" class="alert alert-danger mt-4 d-none" role="alert">
         😕 No hemos podido enviar tu propuesta. Inténtalo de nuevo en unos minutos.
@@ -92,22 +163,36 @@
   </div>
 
   <script>
+    // URL del Flow (HTTP trigger)
     const FLOW_URL = "https://prod-250.westeurope.logic.azure.com:443/workflows/8a81b08fbbd542ffb4c8a9dfdd9017d4/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=yResE6JVBcAnunnBXgReUyhrzPATYp8-lEHpUcV5ZP8";
 
     const form = document.getElementById('c4sForm');
     const okAlert = document.getElementById('okAlert');
     const errAlert = document.getElementById('errAlert');
 
+    // Límite de tracks
+    const MAX_TRACKS = 3;
+    const trackBoxes = Array.from(document.querySelectorAll('input[name="track"]'));
+    const trackHint = document.getElementById('trackHint');
+
+    function enforceTrackLimit() {
+      const checked = trackBoxes.filter(cb => cb.checked);
+      const limitReached = checked.length >= MAX_TRACKS;
+      trackBoxes.forEach(cb => {
+        if (!cb.checked) cb.disabled = limitReached; // deshabilita los no marcados cuando llegas a 3
+      });
+      trackHint.textContent = limitReached
+        ? `Has alcanzado el máximo (${MAX_TRACKS}).`
+        : `Puedes seleccionar hasta ${MAX_TRACKS}.`;
+    }
+    trackBoxes.forEach(cb => cb.addEventListener('change', enforceTrackLimit));
+
     function validate() {
       let valid = true;
-      ['title','fullname','email','message','formato'].forEach(id => {
+      ['titulo','fullName','email','phone','formato','desc'].forEach(id => {
         const el = document.getElementById(id);
-        if (!el.checkValidity()) {
-          el.classList.add('is-invalid');
-          valid = false;
-        } else {
-          el.classList.remove('is-invalid');
-        }
+        if (!el.checkValidity()) { el.classList.add('is-invalid'); valid = false; }
+        else { el.classList.remove('is-invalid'); }
       });
       return valid;
     }
@@ -119,13 +204,16 @@
 
       if (!validate()) return;
 
+      const selectedTracks = trackBoxes.filter(cb => cb.checked).map(cb => cb.value);
+
       const payload = {
-        Title: document.getElementById('title').value.trim(),
-        Full_x0020_Name: document.getElementById('fullname').value.trim(),
+        Title: document.getElementById('titulo').value.trim(),
+        Full_x0020_Name: document.getElementById('fullName').value.trim(),
         Email: document.getElementById('email').value.trim(),
         Phone: document.getElementById('phone').value.trim(),
-        Message: document.getElementById('message').value.trim(),
-        Formato: document.getElementById('formato').value
+        Message: document.getElementById('desc').value.trim(),
+        Formato: document.getElementById('formato').value,
+        Track: selectedTracks // ← array de strings
       };
 
       try {
@@ -137,19 +225,20 @@
 
         if (res.ok) {
           form.reset();
+          enforceTrackLimit(); // re-habilita checkboxes
           okAlert.classList.remove('d-none');
           window.scrollTo({ top: 0, behavior: 'smooth' });
-
-          setTimeout(() => {
-            window.location.href = "https://www.powerplatformcantabria.com";
-          }, 2000);
+          setTimeout(() => { window.location.href = "https://www.powerplatformcantabria.com"; }, 2000);
         } else {
           errAlert.classList.remove('d-none');
         }
-      } catch (err) {
+      } catch {
         errAlert.classList.remove('d-none');
       }
     });
+
+    // Estado inicial
+    enforceTrackLimit();
   </script>
 </body>
 </html>
