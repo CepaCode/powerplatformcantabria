@@ -112,11 +112,11 @@
       if (!validate()) return;
 
       const payload = {
-        Title: document.getElementById('nombre').value.trim(),
-        Email: document.getElementById('email').value.trim(),
-        Sesiones: document.getElementById('chkSesiones').checked,
-        Workshop: document.getElementById('chkWorkshop').checked
-      };
+  Title: document.getElementById('nombre').value.trim(),
+  Email: document.getElementById('email').value.trim(),
+  Sesiones: document.getElementById('chkSesiones').checked,
+  Workshop: document.getElementById('chkWorkshop') ? document.getElementById('chkWorkshop').checked : false
+};
 
       try {
         const res = await fetch(FLOW_URL, {
