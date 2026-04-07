@@ -6,12 +6,24 @@
   <title>Registro · Power Platform Cantabria</title>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <style>
+    html, body { overflow-x: hidden; }
     body { background: #fafafa; }
-    .nav-spacer { height: 56px; }
+    .nav-spacer { height: 72px; }
     .card { border-radius: 14px; box-shadow: 0 8px 22px rgba(0,0,0,.08); }
     .brand { font-weight: 700; }
     .required::after { content:" *"; color:#d00; }
-    .pill { background:#9D0049; color:#fff; padding:.35rem .75rem; border-radius:999px; font-size:.85rem; }
+    .pill {
+      background:#9D0049;
+      color:#fff;
+      padding:.5rem .9rem;
+      border-radius:999px;
+      font-size:.85rem;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:42px;
+      text-align:center;
+    }
    .pill:hover {
       transform: scale(1.05);
       box-shadow: 0 8px 22px rgba(0,0,0,.3);
@@ -20,6 +32,55 @@
       text-decoration: none;
     }
     .navbar { background: transparent !important; }
+    .page-shell { max-width: 720px; }
+
+    @media (max-width: 767.98px) {
+      .navbar .container {
+        padding-left: 16px;
+        padding-right: 16px;
+        flex-wrap: wrap;
+        gap: .75rem;
+      }
+
+      .brand {
+        font-size: 1rem;
+        line-height: 1.2;
+        max-width: 100%;
+        white-space: normal;
+      }
+
+      .nav-spacer {
+        height: 108px;
+      }
+
+      .page-shell {
+        margin-top: 2rem !important;
+        margin-bottom: 2rem !important;
+        padding-left: 8px;
+        padding-right: 8px;
+      }
+
+      .card {
+        padding: 1.25rem !important;
+      }
+
+      h1 {
+        font-size: 1.8rem;
+        line-height: 1.2;
+      }
+    }
+
+    @media (max-width: 575.98px) {
+      .navbar .container {
+        justify-content: center !important;
+        text-align: center;
+      }
+
+      .pill,
+      .btn-block {
+        width: 100%;
+      }
+    }
   </style>
 </head>
 <body>
@@ -32,7 +93,7 @@
   </nav>
   <div class="nav-spacer"></div>
 
-  <div class="container my-5" style="max-width: 720px;">
+  <div class="container my-5 page-shell">
     <h1 class="mb-3 text-center">Registro de asistentes</h1>
     <p class="text-muted text-center mb-4">
       Rellena tus datos para confirmar asistencia. Los campos marcados con * son obligatorios.
@@ -58,11 +119,13 @@
             <input type="checkbox" class="custom-control-input" id="chkSesiones">
             <label class="custom-control-label" for="chkSesiones">Sesiones</label>
           </div>
-      
+
+          <!--
           <div class="custom-control custom-checkbox">
             <input type="checkbox" class="custom-control-input" id="chkWorkshop">
             <label class="custom-control-label" for="chkWorkshop">Workshop</label>
-          
+          </div>
+          -->
         </div>
 
         <button type="submit" class="btn btn-primary btn-block">Enviar registro</button>

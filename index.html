@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" http-equiv="Content-Language" content="es">
@@ -25,21 +26,21 @@
 </nav>
 
 <!-- Logo -->
-<div class="container-fluid p-0 d-flex justify-content-center align-items-center" style="height:300px;background-color:white;">
-  <img src="img/LogoPPC.png" alt="Power Platform Cantabria Logo" width="343" height="283">
+<div class="container-fluid p-0 d-flex justify-content-center align-items-center hero-logo-wrap">
+  <img src="img/LogoPPC.png" alt="Power Platform Cantabria Logo" class="hero-logo">
 </div>
 
 <!-- Títulos -->
 <div class="container mt-5">
   <div class="text-center mb-4">
-    <h1 style="font-size:36px;font-weight:bold;">Power Platform Cantabria</h1>
+    <h1 class="page-title">Power Platform Cantabria</h1>
   </div>
 </div>
 
 <div class="container mt-5">
   <div class="text-center mb-4">
-    <h1 style="font-size:32px;font-weight:bold;"> ¡Próximo Power Platform Cantabria el jueves 16 de abril a las 18:00! </h1>
-    <h1 style="font-size:32px;font-weight:bold;">¡Y ya tenemos cartel, mira más abajo! </h1>
+    <h1 class="event-title"> ¡Próximo Power Platform Cantabria el jueves 16 de abril a las 18:00! </h1>
+    <h1 class="event-title">¡Y ya tenemos cartel, mira más abajo! </h1>
   </div>
   <!--<div class="container text-center my-5">
     <a href="c4s.html" class="reg-btn-alt">¡Participa!</a>
@@ -50,7 +51,7 @@
 
 <!-- Carrusel -->
 <div class="container mt-5">
-  <div id="speakerCarousel" class="carousel slide" data-ride="carousel" style="max-width:80%; margin:auto;">
+  <div id="speakerCarousel" class="carousel slide speaker-carousel" data-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
         <img src="img/GPPB1.jpeg" class="d-block w-100" alt="Speaker 1">
@@ -153,6 +154,46 @@
 <style>
   :root {
     --speaker-hero-height: 350px;
+  }
+
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+  body {
+    background: #fff;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  .hero-logo-wrap {
+    min-height: 300px;
+    background-color: white;
+    padding: 1.5rem 1rem;
+  }
+
+  .hero-logo {
+    width: min(343px, 78vw);
+    height: auto;
+  }
+
+  .page-title {
+    font-size: clamp(2rem, 4vw, 2.25rem);
+    font-weight: 700;
+    margin-bottom: 0;
+  }
+
+  .event-title {
+    font-size: clamp(1.6rem, 3.2vw, 2rem);
+    font-weight: 700;
+  }
+
+  .speaker-carousel {
+    max-width: min(80%, 1000px);
+    margin: auto;
   }
 
   .reg-btn {
@@ -362,6 +403,7 @@
     width: 100%;
     max-width: 600px;
     height: 300px;
+    border-radius: 18px;
   }
 
   .navbar .container {
@@ -410,9 +452,59 @@
     margin-right: 5px;
   }
 
+  .partner-logos-wrap {
+    min-height: 300px;
+    background-color: white;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 2rem 1rem;
+  }
+
+  .partner-logo {
+    width: 150px;
+    height: 80px;
+    object-fit: contain;
+  }
+
   @media (max-width: 767.98px) {
     :root {
       --speaker-hero-height: 300px;
+    }
+
+    .hero-logo-wrap {
+      min-height: 220px;
+    }
+
+    .speaker-carousel {
+      max-width: 100%;
+    }
+
+    .navbar .container {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+
+    .navbar-brand {
+      font-size: 1rem;
+      max-width: calc(100% - 56px);
+      white-space: normal;
+      line-height: 1.2;
+    }
+
+    .navbar-collapse {
+      background: #fff;
+      margin-top: .75rem;
+      padding: .5rem 0;
+      border-radius: 14px;
+      box-shadow: 0 10px 24px rgba(0,0,0,.08);
+    }
+
+    .navbar-nav {
+      margin-left: 0;
+    }
+
+    .nav-link {
+      padding: .75rem 1rem;
     }
 
     .speaker-title {
@@ -430,12 +522,69 @@
     .speaker-description {
       font-size: .96rem;
     }
+
+    .tech-icon {
+      right: 10px;
+      bottom: 10px;
+      width: 42px;
+      height: 42px;
+      padding: 8px;
+    }
+
+    .map-container h3 {
+      font-size: 1.35rem;
+      line-height: 1.35;
+    }
+
+    .partner-logos-wrap {
+      min-height: auto;
+      gap: 14px;
+    }
   }
 
   @media (max-width: 600px) {
+    .container.mt-5 {
+      margin-top: 2rem !important;
+    }
+
+    .event-title {
+      line-height: 1.25;
+    }
+
+    .reg-btn-alt,
+    .reg-btn {
+      display: inline-block;
+      width: 100%;
+      max-width: 320px;
+      padding: .95rem 1.5rem;
+    }
+
     .responsiveIframe {
-      max-width: 300px;
+      max-width: 100%;
       height: 250px;
+    }
+
+    .speaker-body {
+      padding: 1rem;
+    }
+
+    .dual-speaker-hero {
+      grid-template-columns: 1fr;
+      height: auto;
+    }
+
+    .dual-speaker-photo + .dual-speaker-photo {
+      border-left: 0;
+      border-top: 2px solid rgba(255,255,255,.95);
+    }
+
+    .speaker-img-split {
+      min-height: 220px;
+    }
+
+    .partner-logo {
+      width: 130px;
+      height: 70px;
     }
   }
 
@@ -469,9 +618,9 @@
 </div>
 
 <!-- Logos Santander y CIE -->
-<div class="container-fluid p-0 d-flex justify-content-center align-items-center" style="height:300px; background-color:white; gap:20px;">
-  <img src="img/SantanderCiudad.jpg" alt="Santander Ciudad logo" width="150" height="80">
-  <img src="img/CIELogo.jpg" alt="CIE logo" width="150" height="80">
+<div class="container-fluid p-0 d-flex justify-content-center align-items-center partner-logos-wrap">
+  <img src="img/SantanderCiudad.jpg" alt="Santander Ciudad logo" class="partner-logo">
+  <img src="img/CIELogo.jpg" alt="CIE logo" class="partner-logo">
 </div>
 
 <!-- Footer -->

@@ -6,12 +6,24 @@
   <title>Call 4 Speakers · Power Platform Cantabria</title>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <style>
+    html, body { overflow-x: hidden; }
     body { background: #fafafa; }
-    .nav-spacer { height: 56px; }
+    .nav-spacer { height: 72px; }
     .card { border-radius: 14px; box-shadow: 0 8px 22px rgba(0,0,0,.08); }
     .brand { font-weight: 700; }
     .required::after { content:" *"; color:#d00; }
-    .pill { background:#9D0049; color:#fff; padding:.35rem .75rem; border-radius:999px; font-size:.85rem; }
+    .pill {
+      background:#9D0049;
+      color:#fff;
+      padding:.5rem .9rem;
+      border-radius:999px;
+      font-size:.85rem;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:42px;
+      text-align:center;
+    }
     .pill:hover {
       transform: scale(1.05);
       box-shadow: 0 8px 22px rgba(0,0,0,.3);
@@ -24,6 +36,59 @@
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
     .muted { color:#6c757d; }
+        .page-shell { max-width: 820px; }
+
+        @media (max-width: 767.98px) {
+          .navbar .container {
+            padding-left: 16px;
+            padding-right: 16px;
+            flex-wrap: wrap;
+            gap: .75rem;
+          }
+
+          .navbar-brand {
+            font-size: 1rem !important;
+            line-height: 1.2;
+            max-width: 100%;
+            white-space: normal;
+          }
+
+          .nav-spacer {
+            height: 108px;
+          }
+
+          .page-shell {
+            margin-top: 2rem !important;
+            margin-bottom: 2rem !important;
+            padding-left: 8px;
+            padding-right: 8px;
+          }
+
+          .card {
+            padding: 1.25rem !important;
+          }
+
+          h1 {
+            font-size: 1.85rem;
+            line-height: 1.2;
+          }
+
+          .text-muted[style] {
+            font-size: 1rem !important;
+          }
+        }
+
+        @media (max-width: 575.98px) {
+          .navbar .container {
+            justify-content: center !important;
+            text-align: center;
+          }
+
+          .pill,
+          .btn-block {
+            width: 100%;
+          }
+        }
   </style>
 </head>
 <body>
@@ -36,9 +101,9 @@
       <a class="pill" href="index.html">Volver</a>
     </div>
   </nav>
-  <div style="height: 72px;"></div>
+  <div class="nav-spacer"></div>
 
-  <div class="container my-5" style="max-width: 820px;">
+  <div class="container my-5 page-shell">
     <h1 class="mb-3 text-center">¡Anímate a participar! Envíanos tu sesión para nuestra próxima edición de Power Platform Cantabria. </h1>
     <p class="text-muted text-center mb-4" style="font-size:18px;">
       Estarás entre gente conocida que te apoyará en todo lo que necesites para que tu charla sea un éxito.
