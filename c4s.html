@@ -6,97 +6,331 @@
   <title>Call 4 Speakers · Power Platform Cantabria</title>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <style>
+    :root {
+      --brand: #9d0049;
+      --brand-deep: #650031;
+      --brand-soft: #f8d9e8;
+      --ink: #1f2230;
+      --muted: #69707d;
+      --line: #e7dfe5;
+      --surface: rgba(255,255,255,.92);
+    }
+
     html, body { overflow-x: hidden; }
-    body { background: #fafafa; }
-    .nav-spacer { height: 72px; }
-    .card { border-radius: 14px; box-shadow: 0 8px 22px rgba(0,0,0,.08); }
+    body {
+      background:
+        radial-gradient(circle at top, rgba(157, 0, 73, .14), transparent 32%),
+        linear-gradient(180deg, #fff8fb 0%, #f7f7f9 38%, #f4f5f7 100%);
+      color: var(--ink);
+    }
+
+    .nav-spacer { height: 88px; }
+    .card {
+      border-radius: 26px;
+      box-shadow: 0 20px 60px rgba(38, 17, 29, .10);
+      border: 1px solid rgba(157, 0, 73, .08);
+    }
     .brand { font-weight: 700; }
     .required::after { content:" *"; color:#d00; }
     .pill {
-      background:#9D0049;
+      background: linear-gradient(135deg, var(--brand), #c42672);
       color:#fff;
-      padding:.5rem .9rem;
+      padding:.6rem 1rem;
       border-radius:999px;
       font-size:.85rem;
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      min-height:42px;
+      min-height:44px;
       text-align:center;
+      box-shadow: 0 12px 26px rgba(157, 0, 73, .22);
+      transition: transform .18s ease, box-shadow .18s ease, opacity .18s ease;
     }
     .pill:hover {
-      transform: scale(1.05);
-      box-shadow: 0 8px 22px rgba(0,0,0,.3);
-      background: #9D0049;
+      transform: translateY(-1px);
+      box-shadow: 0 16px 28px rgba(157, 0, 73, .28);
+      background: linear-gradient(135deg, var(--brand), #c42672);
       color: #fff;
       text-decoration: none;
     }
     .navbar {
-  background-color: #fff !important;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-}
-    .muted { color:#6c757d; }
-        .page-shell { max-width: 820px; }
+      background-color: rgba(255,255,255,.82) !important;
+      backdrop-filter: blur(16px);
+      box-shadow: 0 12px 30px rgba(31, 34, 48, 0.08);
+    }
+    .muted { color: var(--muted); }
+    .page-shell {
+      max-width: 820px;
+      position: relative;
+    }
+    .brand-lockup {
+      font-size: 1.05rem !important;
+      color: var(--ink) !important;
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+    }
+    .brand-mark {
+      font-size: 1.35rem;
+      line-height: 1;
+    }
+    .intro-card {
+      padding: 2rem 2rem 1.75rem;
+      margin-bottom: 1.5rem;
+      border-radius: 28px;
+      color: #fff;
+      background:
+        linear-gradient(135deg, rgba(101, 0, 49, .95), rgba(157, 0, 73, .92) 55%, rgba(210, 70, 129, .86)),
+        #9d0049;
+      box-shadow: 0 22px 60px rgba(101, 0, 49, .24);
+      position: relative;
+      overflow: hidden;
+    }
+    .intro-card::after {
+      content: "";
+      position: absolute;
+      inset: auto -60px -60px auto;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.08);
+    }
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: .9rem;
+      padding: .35rem .75rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,.14);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .page-title {
+      margin-bottom: .85rem;
+      font-size: clamp(2rem, 4vw, 2.9rem);
+      line-height: 1.08;
+      font-weight: 800;
+    }
+    .lead-text {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: rgba(255,255,255,.9);
+      max-width: 620px;
+      margin: 0 auto;
+    }
+    .intro-points {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: .65rem;
+      margin-top: 1.2rem;
+    }
+    .intro-point {
+      padding: .55rem .85rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,.12);
+      font-size: .9rem;
+      line-height: 1.2;
+    }
+    .form-card {
+      background: var(--surface);
+      padding: 1.8rem !important;
+    }
+    .form-group label {
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: .55rem;
+    }
+    .form-control {
+      min-height: 50px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      box-shadow: none;
+      transition: border-color .18s ease, box-shadow .18s ease, background-color .18s ease;
+    }
+    textarea.form-control {
+      min-height: 160px;
+      resize: vertical;
+      padding-top: .85rem;
+    }
+    .form-control:focus {
+      border-color: rgba(157, 0, 73, .55);
+      box-shadow: 0 0 0 .2rem rgba(157, 0, 73, .12);
+    }
+    .custom-select,
+    select.form-control {
+      min-height: 50px;
+    }
+    .track-group {
+      padding: 1rem;
+      border-radius: 18px;
+      background: rgba(157, 0, 73, .04);
+      border: 1px solid rgba(157, 0, 73, .08);
+    }
+    .track-grid {
+      row-gap: .75rem;
+    }
+    .custom-control {
+      min-height: 100%;
+      padding-left: 0;
+    }
+    .custom-control-input {
+      position: absolute;
+      opacity: 0;
+    }
+    .custom-control-label {
+      width: 100%;
+      margin-bottom: 0;
+      padding: .85rem 1rem .85rem 2.8rem;
+      border-radius: 16px;
+      background: #fff;
+      border: 1px solid rgba(157, 0, 73, .12);
+      color: var(--ink);
+      cursor: pointer;
+      transition: transform .16s ease, border-color .16s ease, box-shadow .16s ease, background-color .16s ease;
+    }
+    .custom-control-label::before,
+    .custom-control-label::after {
+      top: 50%;
+      left: 1rem;
+      transform: translateY(-50%);
+      width: 1.1rem;
+      height: 1.1rem;
+      border-radius: .3rem;
+    }
+    .custom-control-label::before {
+      border-color: rgba(157, 0, 73, .35);
+      background: #fff;
+    }
+    .custom-control-input:checked ~ .custom-control-label {
+      background: rgba(157, 0, 73, .09);
+      border-color: rgba(157, 0, 73, .35);
+      box-shadow: 0 10px 24px rgba(157, 0, 73, .12);
+    }
+    .custom-control-input:checked ~ .custom-control-label::before {
+      background-color: var(--brand);
+      border-color: var(--brand);
+    }
+    .custom-control-input:focus ~ .custom-control-label {
+      box-shadow: 0 0 0 .2rem rgba(157, 0, 73, .12);
+    }
+    .custom-control-input:disabled ~ .custom-control-label {
+      opacity: .45;
+      cursor: not-allowed;
+      background: #f5f2f4;
+    }
+    .track-hint {
+      margin-top: .9rem;
+      font-size: .95rem;
+    }
+    .track-hint.limit-reached {
+      color: var(--brand-deep);
+      font-weight: 600;
+    }
+    .submit-btn {
+      min-height: 52px;
+      border: 0;
+      border-radius: 16px;
+      font-weight: 700;
+      letter-spacing: .01em;
+      background: linear-gradient(135deg, var(--brand), #c42672);
+      box-shadow: 0 16px 32px rgba(157, 0, 73, .22);
+    }
+    .submit-btn:hover,
+    .submit-btn:focus {
+      background: linear-gradient(135deg, var(--brand-deep), var(--brand));
+    }
+    .alert {
+      border-radius: 16px;
+    }
+    .consent-note {
+      text-align: center;
+      color: var(--muted);
+      max-width: 640px;
+      margin-left: auto;
+      margin-right: auto;
+    }
 
-        @media (max-width: 767.98px) {
-          .navbar .container {
-            padding-left: 16px;
-            padding-right: 16px;
-            flex-wrap: wrap;
-            gap: .75rem;
-          }
+    @media (max-width: 767.98px) {
+      .navbar .container {
+        padding-left: 16px;
+        padding-right: 16px;
+        flex-wrap: wrap;
+        gap: .75rem;
+      }
 
-          .navbar-brand {
-            font-size: 1rem !important;
-            line-height: 1.2;
-            max-width: 100%;
-            white-space: normal;
-          }
+      .navbar-brand {
+        font-size: 1rem !important;
+        line-height: 1.2;
+        max-width: 100%;
+        white-space: normal;
+      }
 
-          .nav-spacer {
-            height: 108px;
-          }
+      .nav-spacer {
+        height: 116px;
+      }
 
-          .page-shell {
-            margin-top: 2rem !important;
-            margin-bottom: 2rem !important;
-            padding-left: 8px;
-            padding-right: 8px;
-          }
+      .page-shell {
+        margin-top: 1.5rem !important;
+        margin-bottom: 2rem !important;
+        padding-left: 8px;
+        padding-right: 8px;
+      }
 
-          .card {
-            padding: 1.25rem !important;
-          }
+      .intro-card {
+        padding: 1.5rem 1.2rem;
+        border-radius: 24px;
+      }
 
-          h1 {
-            font-size: 1.85rem;
-            line-height: 1.2;
-          }
+      .form-card {
+        padding: 1.2rem !important;
+        border-radius: 22px;
+      }
 
-          .text-muted[style] {
-            font-size: 1rem !important;
-          }
-        }
+      h1 {
+        font-size: 1.9rem;
+        line-height: 1.15;
+      }
 
-        @media (max-width: 575.98px) {
-          .navbar .container {
-            justify-content: center !important;
-            text-align: center;
-          }
+      .lead-text {
+        font-size: 1rem;
+      }
+    }
 
-          .pill,
-          .btn-block {
-            width: 100%;
-          }
-        }
+    @media (max-width: 575.98px) {
+      .navbar .container {
+        justify-content: center !important;
+        text-align: center;
+      }
+
+      .pill,
+      .btn-block {
+        width: 100%;
+      }
+
+      .intro-points {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .intro-point {
+        width: 100%;
+      }
+
+      .custom-control-label {
+        padding-right: .85rem;
+      }
+    }
   </style>
 </head>
 <body>
   <!-- Nav mínima -->
   <nav class="navbar navbar-light bg-white shadow-sm fixed-top">
     <div class="container d-flex justify-content-between align-items-center">
-      <a class="navbar-brand font-weight-bold mb-0" href="index.html" style="font-size: 18px;">
-        <span style="font-size: 22px;">💢</span> Power Platform Cantabria
+      <a class="navbar-brand font-weight-bold mb-0 brand-lockup" href="index.html">
+        <span class="brand-mark">💢</span>
+        <span>Power Platform Cantabria</span>
       </a>
       <a class="pill" href="index.html">Volver</a>
     </div>
@@ -104,12 +338,20 @@
   <div class="nav-spacer"></div>
 
   <div class="container my-5 page-shell">
-    <h1 class="mb-3 text-center">¡Anímate a participar! Envíanos tu sesión para nuestra próxima edición de Power Platform Cantabria. </h1>
-    <p class="text-muted text-center mb-4" style="font-size:18px;">
-      Estarás entre gente conocida que te apoyará en todo lo que necesites para que tu charla sea un éxito.
-    </p>
+    <section class="intro-card text-center">
+      <div class="eyebrow">Call for Speakers</div>
+      <h1 class="page-title">Trae tu sesión a la próxima edición de Power Platform Cantabria</h1>
+      <p class="lead-text mb-0">
+        Comparte una idea útil, una demo bien resuelta o una lección aprendida. Estarás con una comunidad cercana que te ayudará a que la charla salga redonda.
+      </p>
+      <div class="intro-points">
+        <span class="intro-point">Sesiones y workshops</span>
+        <span class="intro-point">Hasta 3 temas por propuesta</span>
+        <span class="intro-point">Contacto directo para logística</span>
+      </div>
+    </section>
 
-    <div class="card p-4">
+    <div class="card p-4 form-card">
       <form id="c4sForm" novalidate>
         <!-- Título (Title) -->
         <div class="form-group">
@@ -152,9 +394,9 @@
         </div>
 
         <!-- Track (Choice múltiple, máx 3) -->
-        <div class="form-group">
+        <div class="form-group track-group">
           <label class="d-block">Temas</label>
-          <div class="row">
+          <div class="row track-grid">
             <!-- usa EXACTAMENTE estos values (coinciden con SharePoint) -->
             <div class="col-sm-6 col-md-4">
               <div class="custom-control custom-checkbox">
@@ -211,7 +453,7 @@
               </div>
             </div>
           </div>
-          <small id="trackHint" class="muted d-block mt-2">Puedes seleccionar hasta 3.</small>
+          <small id="trackHint" class="muted d-block track-hint">Puedes seleccionar hasta 3.</small>
         </div>
 
         <!-- Descripción (Message) -->
@@ -221,7 +463,7 @@
           <div class="invalid-feedback">Incluye una breve descripción.</div>
         </div>
 
-        <button type="submit" class="btn btn-primary btn-block">Enviar propuesta</button>
+        <button type="submit" class="btn btn-primary btn-block submit-btn">Enviar propuesta</button>
       </form>
 
       <!-- Alertas -->
@@ -233,7 +475,7 @@
       </div>
     </div>
 
-    <p class="text-muted small mt-3">
+    <p class="text-muted small mt-3 consent-note">
       Al enviar este formulario aceptas que tus datos sean utilizados para la gestión del evento.
     </p>
   </div>
@@ -257,11 +499,18 @@
       trackBoxes.forEach(cb => {
         if (!cb.checked) cb.disabled = limitReached; // deshabilita los no marcados cuando llegas a 3
       });
+      trackHint.classList.toggle('limit-reached', limitReached);
       trackHint.textContent = limitReached
         ? `Has alcanzado el máximo (${MAX_TRACKS}).`
         : `Puedes seleccionar hasta ${MAX_TRACKS}.`;
     }
     trackBoxes.forEach(cb => cb.addEventListener('change', enforceTrackLimit));
+
+    ['titulo','fullName','email','phone','formato','desc'].forEach(id => {
+      const field = document.getElementById(id);
+      field.addEventListener('input', () => field.classList.remove('is-invalid'));
+      field.addEventListener('change', () => field.classList.remove('is-invalid'));
+    });
 
     function validate() {
       let valid = true;
