@@ -113,19 +113,12 @@
           <div class="invalid-feedback">Introduce un email válido.</div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" style="display:none;">
           <label class="d-block">¿A qué asistirás?</label>
           <div class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input" id="chkSesiones">
+            <input type="checkbox" class="custom-control-input" id="chkSesiones" checked>
             <label class="custom-control-label" for="chkSesiones">Sesiones</label>
           </div>
-
-          <!--
-          <div class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input" id="chkWorkshop">
-            <label class="custom-control-label" for="chkWorkshop">Workshop</label>
-          </div>
-          -->
         </div>
 
         <button type="submit" class="btn btn-primary btn-block">Enviar registro</button>
@@ -177,8 +170,8 @@
       const payload = {
   Title: document.getElementById('nombre').value.trim(),
   Email: document.getElementById('email').value.trim(),
-  Sesiones: document.getElementById('chkSesiones').checked,
-  Workshop: document.getElementById('chkWorkshop') ? document.getElementById('chkWorkshop').checked : false
+  Sesiones: false,
+  Workshop: true
 };
 
       try {
