@@ -18,7 +18,7 @@
     <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item"><a class="nav-link" href="https://www.powerplatformcantabria.com">Home</a></li>
-        <!--<li class="nav-item"><a class="nav-link" href="registro.html">Registro</a></li>-->
+        <li class="nav-item"><a class="nav-link font-weight-bold" href="registro.html">Asistentes</a></li>
         <li class="nav-item"><a class="nav-link" href="c4s.html">¡Participa!</a></li>
       </ul>
     </div>
@@ -37,23 +37,144 @@
   </div>
 </div>
 
-<div class="container mt-5">
-  <div class="text-center mb-4">
-    <h1 class="event-title">¡Gran evento el pasado 16 de abril!</h1>
-    <p style="font-size:1.2rem; color:#555; max-width:700px; margin:1rem auto;">
-      Tuvimos unas charlas increíbles y conversaciones muy interesantes sobre Power Platform.
-      ¡Gracias a todos los que vinisteis!
-    </p>
-    <h1 class="event-title">¡Volvemos en junio! 🔥</h1>
-  </div>
-  <div class="container text-center my-5">
-    <a href="c4s.html" class="reg-btn-alt">¿Quieres ser speaker? ¡Envía tu sesión!</a>
-  </div>
-</div>
+<!-- 🚀 Hero Workshop -->
+<section class="workshop-hero">
+  <div class="hero-blob hero-blob-1"></div>
+  <div class="hero-blob hero-blob-2"></div>
+  <div class="hero-blob hero-blob-3"></div>
+  <div class="container position-relative hero-content">
+    <div class="text-center">
+      <span class="hero-badge">🚀 Próximo evento · Plazas limitadas</span>
+      <h1 class="workshop-title">Nuevo workshop de<br><span class="gradient-text">Microsoft Code Apps</span></h1>
+      <p class="workshop-desc">
+        Aprende <span class="hl">DESDE CERO</span> y con <span class="hl">Inteligencia Artificial</span>
+        a crear una app de <span class="hl">NEGOCIO REAL</span> utilizando tecnología Microsoft
+      </p>
+    </div>
 
+    <!-- Fecha y lugar -->
+    <div class="row justify-content-center mt-4">
+      <div class="col-md-5 col-lg-4 mb-3">
+        <div class="info-card">
+          <div class="info-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="3"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><circle cx="12" cy="16" r="2.2" fill="currentColor" stroke="none"/></svg>
+          </div>
+          <h5 class="info-title">Fecha</h5>
+          <p class="info-text mb-0">17 de septiembre<br>de 17:00 a 19:30</p>
+        </div>
+      </div>
+      <div class="col-md-5 col-lg-4 mb-3">
+        <div class="info-card">
+          <div class="info-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11z"/><circle cx="12" cy="10" r="2.6" fill="currentColor" stroke="none"/></svg>
+          </div>
+          <h5 class="info-title">Lugar</h5>
+          <p class="info-text mb-0">Centro de Iniciativas Empresariales (CIE) de Santander</p>
+        </div>
+      </div>
+    </div>
 
-<!-- Carrusel -->
+    <!-- Cuenta atrás -->
+    <div class="countdown-wrap text-center" aria-label="Cuenta atrás para el workshop">
+      <p class="countdown-label mb-2">⏳ El workshop empieza en…</p>
+      <div class="countdown" id="countdown">
+        <div class="count-box"><span id="cd-days">--</span><small>días</small></div>
+        <div class="count-box"><span id="cd-hours">--</span><small>horas</small></div>
+        <div class="count-box"><span id="cd-mins">--</span><small>min</small></div>
+        <div class="count-box"><span id="cd-secs">--</span><small>seg</small></div>
+      </div>
+    </div>
+
+    <div class="text-center mt-4">
+      <a href="registro.html" class="hero-cta">🎟️ ¡Reserva tu plaza gratis!</a>
+      <p class="hero-cta-note mt-2 mb-0">Aforo limitado · Entrada gratuita</p>
+    </div>
+  </div>
+</section>
+
+<!-- 🌟 Speaker Spotlight -->
+<section class="spotlight-section">
+  <div class="container">
+    <div class="row align-items-center justify-content-center">
+      <div class="col-md-5 text-center mb-4 mb-md-0">
+        <div class="spotlight-photo-wrap">
+          <img src="img/Imagen%20de%20perfil.png" alt="Speaker del workshop" class="spotlight-photo">
+          <img src="img/GitHub%20copilot%20image.png" alt="GitHub Copilot" class="spotlight-copilot-badge">
+        </div>
+      </div>
+      <div class="col-md-7 col-lg-6">
+        <span class="spotlight-label">✨ Tu speaker</span>
+        <h2 class="spotlight-name">Nacho Cepa</h2>
+        <p class="spotlight-role">Organizador de Power Platform Cantabria</p>
+        <p class="spotlight-bio">
+          Un workshop 100% práctico: saldrás habiendo construido una aplicación real con
+          <strong>Power Apps Code Apps</strong>, <strong>GitHub Copilot</strong> y todo el poder de la IA.
+          Sin experiencia previa necesaria: solo trae tu portátil y ganas de crear.
+        </p>
+        <div class="spotlight-tech">
+          <span class="tech-chip"><img src="img/PowerApps.svg" alt="">Power Apps</span>
+          <span class="tech-chip"><img src="img/Dataverse.svg" alt="">Dataverse</span>
+          <span class="tech-chip"><img src="img/github-copilot-microsoft-ausum-cloud.png" alt="">GitHub Copilot</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 💡 Qué aprenderás -->
+<section class="learn-section">
+  <div class="container">
+    <h2 class="section-heading text-center">¿Qué te llevarás del workshop?</h2>
+    <div class="row mt-4">
+      <div class="col-md-4 mb-4">
+        <div class="learn-card">
+          <div class="learn-emoji">🧑‍💻</div>
+          <h5>De cero a app</h5>
+          <p>Crea paso a paso una aplicación de negocio real con Code Apps, aunque nunca hayas programado.</p>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="learn-card">
+          <div class="learn-emoji">🤖</div>
+          <h5>IA como copiloto</h5>
+          <p>Descubre cómo GitHub Copilot escribe código contigo y multiplica tu velocidad de desarrollo.</p>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="learn-card">
+          <div class="learn-emoji">🚀</div>
+          <h5>Despliegue real</h5>
+          <p>Publica tu app en Power Platform y llévate una base lista para usar en tu empresa o proyecto.</p>
+        </div>
+      </div>
+    </div>
+    <div class="text-center my-4">
+      <a href="registro.html" class="reg-btn-alt">¡Apúntate ahora!</a>
+    </div>
+  </div>
+</section>
+
+<!-- 🤝 Copilot banner -->
+<section class="copilot-banner">
+  <div class="container">
+    <div class="row align-items-center justify-content-center">
+      <div class="col-md-4 text-center mb-4 mb-md-0">
+        <img src="img/GitHub%20copilot%20image.png" alt="GitHub Copilot" class="copilot-img floaty">
+      </div>
+      <div class="col-md-7 text-center text-md-left">
+        <h2 class="copilot-title">Programa en pareja con la IA</h2>
+        <p class="copilot-text">
+          Verás en directo cómo la Inteligencia Artificial convierte ideas en código.
+          Trae tu portátil y vive la experiencia <strong>vibe coding</strong> con GitHub Copilot.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 📸 Último evento -->
 <div class="container mt-5">
+  <h2 class="section-heading text-center mb-4">Así fue nuestro último evento 🔥</h2>
   <div id="speakerCarousel" class="carousel slide speaker-carousel" data-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
@@ -74,6 +195,9 @@
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="sr-only">Next</span>
     </a>
+  </div>
+  <div class="container text-center my-5">
+    <a href="c4s.html" class="reg-btn">¿Quieres ser speaker? ¡Envía tu sesión!</a>
   </div>
 </div>
 <!-- 🔥 Botón destacado alternativo - Registro desactivado hasta próximo evento
@@ -188,6 +312,9 @@
   .speaker-carousel {
     max-width: min(80%, 1000px);
     margin: auto;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 14px 34px rgba(0,0,0,.18);
   }
 
   .reg-btn {
@@ -596,6 +723,379 @@
       margin-bottom: 5px;
     }
   }
+
+  /* ===== Workshop hero ===== */
+  .workshop-hero {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(150deg, #1a0a2e 0%, #3b0a45 40%, #9D0049 100%);
+    color: #fff;
+    padding: 4.5rem 1rem 4rem;
+    margin-top: 2rem;
+  }
+
+  .hero-content { z-index: 2; }
+
+  .hero-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(70px);
+    opacity: .5;
+    z-index: 1;
+    animation: blobFloat 9s ease-in-out infinite alternate;
+  }
+
+  .hero-blob-1 { width: 380px; height: 380px; background: #ff2f7e; top: -120px; left: -100px; }
+  .hero-blob-2 { width: 320px; height: 320px; background: #7b2cbf; bottom: -110px; right: -80px; animation-delay: 2s; }
+  .hero-blob-3 { width: 220px; height: 220px; background: #ffb900; top: 40%; left: 60%; opacity: .25; animation-delay: 4s; }
+
+  @keyframes blobFloat {
+    from { transform: translateY(0) scale(1); }
+    to   { transform: translateY(35px) scale(1.12); }
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: rgba(255,255,255,.14);
+    border: 1px solid rgba(255,255,255,.35);
+    backdrop-filter: blur(6px);
+    color: #fff;
+    padding: .45rem 1.2rem;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: .95rem;
+    letter-spacing: .4px;
+    margin-bottom: 1.2rem;
+    animation: pulseBadge 2.4s ease-in-out infinite;
+  }
+
+  @keyframes pulseBadge {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(255,185,0,.45); }
+    50%      { box-shadow: 0 0 0 12px rgba(255,185,0,0); }
+  }
+
+  .workshop-title {
+    font-size: clamp(2.1rem, 5.5vw, 3.6rem);
+    font-weight: 800;
+    line-height: 1.12;
+    margin-bottom: 1rem;
+    text-shadow: 0 4px 18px rgba(0,0,0,.35);
+  }
+
+  .gradient-text {
+    background: linear-gradient(90deg, #ffb900, #ff2f7e, #b388ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .workshop-desc {
+    font-size: clamp(1.1rem, 2.3vw, 1.35rem);
+    max-width: 760px;
+    margin: 0 auto;
+    color: rgba(255,255,255,.9);
+    line-height: 1.55;
+  }
+
+  .workshop-desc .hl {
+    color: #ffb900;
+    font-weight: 800;
+  }
+
+  .info-card {
+    background: rgba(255,255,255,.10);
+    border: 1px solid rgba(255,255,255,.25);
+    backdrop-filter: blur(8px);
+    border-radius: 20px;
+    padding: 1.6rem 1.4rem;
+    text-align: center;
+    height: 100%;
+    box-shadow: 0 12px 30px rgba(0,0,0,.25);
+    transition: transform .2s ease;
+  }
+
+  .info-card:hover { transform: translateY(-5px); }
+
+  .info-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto .8rem;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #ffb900, #ff2f7e);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(255,47,126,.4);
+  }
+
+  .info-icon svg { width: 34px; height: 34px; color: #fff; }
+
+  .info-title {
+    font-weight: 800;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+    font-size: 1rem;
+    color: #ffb900;
+  }
+
+  .info-text {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.4;
+  }
+
+  .countdown-wrap { margin-top: 1.5rem; }
+
+  .countdown-label {
+    color: rgba(255,255,255,.85);
+    font-weight: 600;
+    letter-spacing: .3px;
+  }
+
+  .countdown {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .count-box {
+    background: rgba(0,0,0,.35);
+    border: 1px solid rgba(255,255,255,.2);
+    border-radius: 16px;
+    min-width: 78px;
+    padding: .7rem .5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .count-box span {
+    font-size: 1.9rem;
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+  }
+
+  .count-box small {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: .72rem;
+    color: rgba(255,255,255,.75);
+    margin-top: .35rem;
+  }
+
+  .hero-cta {
+    display: inline-block;
+    font-size: 1.2rem;
+    font-weight: 800;
+    padding: 1rem 2.6rem;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #ffb900, #ff2f7e);
+    color: #fff;
+    box-shadow: 0 10px 30px rgba(255,47,126,.5);
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+
+  .hero-cta:hover {
+    transform: scale(1.06);
+    box-shadow: 0 14px 38px rgba(255,47,126,.65);
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .hero-cta-note {
+    color: rgba(255,255,255,.75);
+    font-size: .95rem;
+  }
+
+  /* ===== Speaker spotlight ===== */
+  .spotlight-section {
+    padding: 4.5rem 1rem;
+    background:
+      radial-gradient(circle at 15% 20%, rgba(157,0,73,.07), transparent 45%),
+      radial-gradient(circle at 85% 80%, rgba(123,44,191,.08), transparent 45%),
+      #fff;
+  }
+
+  .spotlight-photo-wrap {
+    position: relative;
+    display: inline-block;
+  }
+
+  .spotlight-photo {
+    width: min(320px, 75vw);
+    height: min(320px, 75vw);
+    object-fit: cover;
+    border-radius: 50%;
+    border: 6px solid #fff;
+    box-shadow:
+      0 0 0 6px rgba(157,0,73,.55),
+      0 0 60px rgba(255,47,126,.45),
+      0 18px 40px rgba(0,0,0,.25);
+  }
+
+  .spotlight-copilot-badge {
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+    width: 92px;
+    height: 92px;
+    object-fit: cover;
+    /* crop to the robot head on the left side of the wide logo */
+    object-position: 0% 50%;
+    background: #fff;
+    border-radius: 50%;
+    border: 4px solid #fff;
+    box-shadow: 0 8px 22px rgba(0,0,0,.3);
+    animation: floaty 3.5s ease-in-out infinite;
+  }
+
+  .spotlight-label {
+    display: inline-block;
+    background: linear-gradient(90deg, #9D0049, #ff2f7e);
+    color: #fff;
+    font-weight: 700;
+    font-size: .85rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: .35rem 1rem;
+    border-radius: 999px;
+    margin-bottom: .9rem;
+  }
+
+  .spotlight-name {
+    font-size: clamp(1.9rem, 4vw, 2.6rem);
+    font-weight: 800;
+    margin-bottom: .2rem;
+  }
+
+  .spotlight-role {
+    color: #9D0049;
+    font-weight: 600;
+    font-size: 1.05rem;
+  }
+
+  .spotlight-bio {
+    font-size: 1.08rem;
+    color: #555;
+    line-height: 1.6;
+  }
+
+  .spotlight-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 1rem;
+  }
+
+  .tech-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #f6f2f5;
+    border: 1px solid #e8dbe3;
+    border-radius: 999px;
+    padding: .45rem 1rem;
+    font-weight: 600;
+    font-size: .95rem;
+    color: #3a3a3a;
+  }
+
+  .tech-chip img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    border-radius: 50%;
+  }
+
+  /* ===== Learn section ===== */
+  .learn-section {
+    padding: 4rem 1rem 2.5rem;
+    background: #faf7f9;
+  }
+
+  .section-heading {
+    font-weight: 800;
+    font-size: clamp(1.6rem, 3.4vw, 2.2rem);
+  }
+
+  .learn-card {
+    position: relative;
+    overflow: hidden;
+    background: #fff;
+    border-radius: 22px;
+    padding: 2.3rem 1.5rem 2rem;
+    text-align: center;
+    height: 100%;
+    box-shadow: 0 10px 28px rgba(0,0,0,.08);
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+
+  .learn-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, #ffb900, #ff2f7e);
+  }
+
+  .learn-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 38px rgba(157,0,73,.18);
+  }
+
+  .learn-emoji { font-size: 2.6rem; margin-bottom: .8rem; }
+
+  .learn-card h5 { font-weight: 800; }
+
+  .learn-card p {
+    color: #666;
+    margin-bottom: 0;
+    line-height: 1.55;
+  }
+
+  /* ===== Copilot banner ===== */
+  .copilot-banner {
+    background: linear-gradient(120deg, #0d1117 0%, #1f2440 60%, #3b0a45 100%);
+    color: #fff;
+    padding: 4rem 1rem;
+  }
+
+  .copilot-img {
+    width: min(260px, 65vw);
+    border-radius: 28px;
+    box-shadow: 0 0 50px rgba(123,44,191,.55), 0 16px 38px rgba(0,0,0,.4);
+  }
+
+  .floaty { animation: floaty 3.5s ease-in-out infinite; }
+
+  @keyframes floaty {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-12px); }
+  }
+
+  .copilot-title {
+    font-weight: 800;
+    font-size: clamp(1.6rem, 3.4vw, 2.3rem);
+  }
+
+  .copilot-text {
+    font-size: 1.12rem;
+    color: rgba(255,255,255,.85);
+    line-height: 1.6;
+    max-width: 560px;
+  }
+
+  @media (max-width: 767.98px) {
+    .workshop-hero { padding: 3rem 1rem 3rem; }
+    .count-box { min-width: 68px; }
+    .spotlight-copilot-badge { width: 72px; height: 72px; }
+    .copilot-text { margin: 0 auto; }
+  }
 </style>
 
 <!-- Mapa -->
@@ -630,5 +1130,33 @@
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+<script>
+  (function () {
+    var target = new Date('2026-09-17T17:00:00+02:00').getTime();
+    var d = document.getElementById('cd-days'),
+        h = document.getElementById('cd-hours'),
+        m = document.getElementById('cd-mins'),
+        s = document.getElementById('cd-secs');
+
+    function pad(n) { return n < 10 ? '0' + n : '' + n; }
+
+    function tick() {
+      var diff = target - Date.now();
+      if (diff <= 0) {
+        document.getElementById('countdown').innerHTML =
+          '<div class="count-box" style="min-width:auto;padding:.7rem 1.4rem;"><span style="font-size:1.3rem;">🎉 ¡Es hoy!</span></div>';
+        clearInterval(timer);
+        return;
+      }
+      d.textContent = pad(Math.floor(diff / 86400000));
+      h.textContent = pad(Math.floor(diff / 3600000) % 24);
+      m.textContent = pad(Math.floor(diff / 60000) % 60);
+      s.textContent = pad(Math.floor(diff / 1000) % 60);
+    }
+
+    tick();
+    var timer = setInterval(tick, 1000);
+  })();
+</script>
 </body>
 </html>
