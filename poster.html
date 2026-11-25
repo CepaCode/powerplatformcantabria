@@ -182,14 +182,9 @@
     font-weight: 600;
     white-space: nowrap;
   }
-  .aside-duo { flex: none; width: 390px; margin-left: 24px; }
   .content { min-width: 0; }
+  .aside { flex: none; width: 340px; margin-left: 20px; }
   .title { font-size: 46px; }
-  .duo { display: flex; gap: 20px; align-items: flex-start; }
-  .person { display: flex; flex-direction: column; align-items: center; gap: 8px; width: 185px; }
-  .person .photo { width: 180px; height: 180px; }
-  .person .speaker-name { font-size: 21px; text-align: center; margin-top: 6px; }
-  .person .speaker-role { margin-top: 0; max-width: 200px; width: 200px; }
   .req {
     display: inline-block;
     margin-top: 12px;
@@ -223,7 +218,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="3"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
           <div>
             <div class="meta-label">Fecha</div>
-            <div class="meta-value">3 diciembre 2026<br>17:00 – 19:30</div>
+            <div class="meta-value">3 diciembre 2026<br>17:00 – 19:00</div>
           </div>
         </div>
         <div class="meta-item">
@@ -247,20 +242,13 @@
       </div>
     </div>
 
-    <div class="aside aside-duo">
+    <div class="aside">
       <div class="speaker-group">
-        <div class="duo">
-          <div class="person">
-            <img class="photo" src="img/Natalia%20Ovelar.jpeg" alt="Natalia Ovelar">
-            <div class="speaker-name">Natalia Ovelar</div>
-            <div class="speaker-role">Consultora Power Platform</div>
-          </div>
-          <div class="person">
-            <img class="photo" src="img/Carolina%20Sierra.jpeg" alt="Carolina Sierra">
-            <div class="speaker-name">Carolina Sierra</div>
-            <div class="speaker-role">Power Platform · Copilot Studio<br>AI Agents | Gobierno y adopción</div>
-          </div>
+        <div class="photo-wrap">
+          <img class="photo" src="img/Natalia%20Ovelar.jpeg" alt="Natalia Ovelar">
         </div>
+        <div class="speaker-name">Natalia Ovelar</div>
+        <div class="speaker-role">Consultora Power Platform</div>
       </div>
     </div>
   </div>
